@@ -4,6 +4,8 @@ kotlin = "1.8.20"
 logback = "1.2.11"
 postgres = "42.5.1"
 h2 = "2.1.214"
+kotest = "5.6.1"
+test-containers = "1.18.0"
 
 [libraries]
 ktor-server-core = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor" }
@@ -14,12 +16,20 @@ ktor-server-tests = { module = "io.ktor:ktor-server-tests-jvm", version.ref = "k
 postgres = { module = "org.postgresql:postgresql", version.ref = "postgres" }
 logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
 h2 = { module = "com.h2database:h2", version.ref = "h2" }
+kotest-runner-junit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
+kotest-property = { module = "io.kotest:kotest-property", version.ref = "kotest" }
+kotest-extensions-ktor = { module = "io.kotest.extensions:kotest-assertions-ktor", version = "2.0.0" }
+kotest-extensions-test-containers = { module = "io.kotest.extensions:kotest-extensions-testcontainers", version = "1.3.4" }
+test-containers = { module = "org.testcontainers:testcontainers", version.ref = "test-containers" }
+test-containers-mariadb = { module = "org.testcontainers:mariadb", version.ref = "test-containers" }
 
 
 [bundles]
 ktor = [
     "ktor-server-core", "ktor-server-content-negotiation", "ktor-serialization-kotlinx-json", "ktor-server-netty"
 ]
+kotest = ["kotest-runner-junit5", "kotest-property", "kotest-extensions-ktor"]
+test-containers = ["test-containers", "test-containers-mariadb"]
 
 
 [plugins]

@@ -13,10 +13,23 @@ application {
 
 
 dependencies {
+  // Ktor
   implementation(libs.bundles.ktor)
 
+  // Database
   implementation(libs.postgres)
   implementation(libs.h2)
 
+  // Logback
   implementation(libs.logback)
+
+  // Kotest
+  testImplementation(libs.bundles.kotest)
+
+  // TestContainers
+  testImplementation(libs.bundles.test.containers)
+}
+
+tasks.withType<Test> {
+  useJUnitPlatform()
 }
