@@ -6,6 +6,7 @@ postgres = "42.5.1"
 h2 = "2.1.214"
 kotest = "5.6.1"
 test-containers = "1.18.0"
+sqldelight = "2.0.0-alpha05"
 
 [libraries]
 ktor-server-core = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor" }
@@ -24,6 +25,7 @@ test-containers = { module = "org.testcontainers:testcontainers", version.ref = 
 test-containers-mariadb = { module = "org.testcontainers:mariadb", version.ref = "test-containers" }
 
 
+
 [bundles]
 ktor = [
     "ktor-server-core", "ktor-server-content-negotiation", "ktor-serialization-kotlinx-json", "ktor-server-netty"
@@ -36,3 +38,4 @@ test-containers = ["test-containers", "test-containers-mariadb"]
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
