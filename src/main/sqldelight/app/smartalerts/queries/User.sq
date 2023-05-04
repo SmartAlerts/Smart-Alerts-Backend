@@ -1,0 +1,5 @@
+insert:
+INSERT INTO SmartUser VALUES ?;
+
+selectAll:
+SELECT * FROM SmartUser;

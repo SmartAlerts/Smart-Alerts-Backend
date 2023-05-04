@@ -20,6 +20,7 @@ dependencies {
   // Database
   implementation(libs.postgres)
   implementation(libs.h2)
+  implementation(libs.jdbc.driver)
 
   // Logback
   implementation(libs.logback)

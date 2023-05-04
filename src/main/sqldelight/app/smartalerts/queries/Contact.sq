@@ -1,0 +1,5 @@
+insert:
+INSERT INTO Contact VALUES ?;
+
+findBySmartUser:
+SELECT * FROM Contact c WHERE c.smart_user = ?;
