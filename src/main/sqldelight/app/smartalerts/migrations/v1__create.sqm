@@ -23,6 +23,7 @@ CREATE TABLE Event(
 CREATE TABLE EventContacts(
     smart_user TEXT NOT NULL,
     contact_phone TEXT NOT NULL,
+    warn_after DATETIME NOT NULL,
     event TEXT NOT NULL,
 
     FOREIGN KEY (smart_user, contact_phone) REFERENCES Contact(smart_user, contact_phone),

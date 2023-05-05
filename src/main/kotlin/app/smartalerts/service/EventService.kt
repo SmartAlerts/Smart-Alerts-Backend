@@ -26,9 +26,9 @@ class EventService(
     }.map { event }
   }
 
-  fun associate(event: Event, contact: Contact): Result<EventContacts> {
+  fun associate(event: Event, contact: Contact, warnAfter: LocalDateTime): Result<EventContacts> {
     return runCatching {
-      val eventContacts = EventContacts(event.smart_user, contact.contact_phone, event.id)
+      val eventContacts = EventContacts(event.smart_user, contact.contact_phone, warnAfter, event.id)
       eventContactQueries.insert(eventContacts)
       eventContacts
     }

@@ -37,11 +37,13 @@ class EventServiceTest : FunSpec({
   }
 
   test("Associate event and contact") {
+    val now = LocalDateTime.now()
     val event = target.create(smartUser.phone, "description", dateTime).getOrThrow()
-    target.associate(event, contact) shouldBeSuccess {
+    target.associate(event, contact, now) shouldBeSuccess {
       it.event shouldBe event.id
       it.smart_user shouldBe smartUser.phone
       it.contact_phone shouldBe contact.contact_phone
+      it.warn_after shouldBe now
     }
   }
 
