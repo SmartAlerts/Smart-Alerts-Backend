@@ -1,31 +1,33 @@
 CREATE TABLE SmartUser(
-    phone TEXT PRIMARY KEY NOT NULL
+    phone VARCHAR(20) NOT NULL,
+
+    PRIMARY KEY (phone)
 );
 
 CREATE TABLE Contact(
-   smart_user TEXT NOT NULL,
-   contact_phone TEXT NOT NULL,
+   smart_user VARCHAR(20) NOT NULL,
+   contact_phone VARCHAR(20) NOT NULL,
 
    PRIMARY KEY (smart_user, contact_phone),
    FOREIGN KEY (smart_user) REFERENCES SmartUser(phone)
 );
 
-CREATE TABLE Event(
-    smart_user TEXT NOT NULL,
-    description TEXT NOT NULL,
+CREATE TABLE SmartEvent(
+    smart_user VARCHAR(20) NOT NULL,
+    description VARCHAR(20) NOT NULL,
     datetime DATETIME NOT NULL,
     is_cancelled BOOLEAN NOT NULL DEFAULT FALSE,
-    id TEXT PRIMARY KEY,
+    id VARCHAR(255) PRIMARY KEY,
 
     FOREIGN KEY (smart_user) REFERENCES SmartUser(phone)
 );
 
 CREATE TABLE EventContacts(
-    smart_user TEXT NOT NULL,
-    contact_phone TEXT NOT NULL,
+    smart_user VARCHAR(20) NOT NULL,
+    contact_phone VARCHAR(20) NOT NULL,
     warn_after DATETIME NOT NULL,
-    event TEXT NOT NULL,
+    event VARCHAR(255) NOT NULL,
 
     FOREIGN KEY (smart_user, contact_phone) REFERENCES Contact(smart_user, contact_phone),
-    FOREIGN KEY (event) REFERENCES Event(id)
+    FOREIGN KEY (event) REFERENCES SmartEvent(id)
 );

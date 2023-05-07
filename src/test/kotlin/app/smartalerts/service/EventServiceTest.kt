@@ -2,7 +2,7 @@ package app.smartalerts.service
 
 import app.cash.sqldelight.driver.jdbc.asJdbcDriver
 import app.smartalerts.Database
-import app.smartalerts.migrations.Event
+import app.smartalerts.migrations.SmartEvent
 import br.com.colman.kotest.extensions.H2Listener
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.equality.shouldBeEqualToIgnoringFields
@@ -30,8 +30,8 @@ class EventServiceTest : FunSpec({
 
     event shouldBeSuccess {
       it.shouldBeEqualToIgnoringFields(
-        Event("123456", "description", dateTime, false, ""),
-        Event::id
+        SmartEvent("123456", "description", dateTime, false, ""),
+        SmartEvent::id
       )
     }
   }

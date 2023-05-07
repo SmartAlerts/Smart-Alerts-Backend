@@ -2,11 +2,12 @@
 ktor = "2.2.4"
 kotlin = "1.8.20"
 logback = "1.2.11"
-postgres = "42.5.1"
+mariadb-client = "3.1.4"
 h2 = "2.1.214"
 kotest = "5.6.1"
 test-containers = "1.18.0"
 sqldelight = "2.0.0-alpha05"
+koin = "3.4.0"
 
 [libraries]
 ktor-server-core = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor" }
@@ -14,7 +15,9 @@ ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negoti
 ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json-jvm", version.ref = "ktor" }
 ktor-server-netty = { module = "io.ktor:ktor-server-netty-jvm", version.ref = "ktor" }
 ktor-server-tests = { module = "io.ktor:ktor-server-tests-jvm", version.ref = "ktor" }
-postgres = { module = "org.postgresql:postgresql", version.ref = "postgres" }
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
+koin-ktor = { module = "io.insert-koin:koin-ktor", version.ref = "koin" }
+hoplite = "com.sksamuel.hoplite:hoplite-yaml:2.7.4"
 logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
 h2 = { module = "com.h2database:h2", version.ref = "h2" }
 kotest-runner-junit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
@@ -25,6 +28,7 @@ kotest-extensions-h2 = { module = "br.com.colman:kotest-extensions-h2", version 
 test-containers = { module = "org.testcontainers:testcontainers", version.ref = "test-containers" }
 test-containers-mariadb = { module = "org.testcontainers:mariadb", version.ref = "test-containers" }
 jdbc-driver = { module = "app.cash.sqldelight:jdbc-driver", version.ref = "sqldelight" }
+mariadb-client = { module = "org.mariadb.jdbc:mariadb-java-client", version.ref = "mariadb-client" }
 
 
 
@@ -32,7 +36,8 @@ jdbc-driver = { module = "app.cash.sqldelight:jdbc-driver", version.ref = "sqlde
 ktor = [
     "ktor-server-core", "ktor-server-content-negotiation", "ktor-serialization-kotlinx-json", "ktor-server-netty"
 ]
-kotest = ["kotest-runner-junit5", "kotest-property", "kotest-extensions-ktor", "kotest-extensions-h2"]
+koin = ["koin-core", "koin-ktor"]
+kotest = ["kotest-runner-junit5", "kotest-property", "kotest-extensions-ktor", "kotest-extensions-h2", "kotest-extensions-test-containers"]
 test-containers = ["test-containers", "test-containers-mariadb"]
 
 

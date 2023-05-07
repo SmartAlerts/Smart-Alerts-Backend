@@ -1,5 +1,5 @@
 insert:
-INSERT INTO Event VALUES ?;
+INSERT INTO SmartEvent VALUES ?;
 
 findBySmartUser:
-SELECT * FROM Event e WHERE e.smart_user = ?;
+SELECT * FROM SmartEvent e WHERE e.smart_user = ?;

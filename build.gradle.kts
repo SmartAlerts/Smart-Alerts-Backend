@@ -17,8 +17,14 @@ dependencies {
   // Ktor
   implementation(libs.bundles.ktor)
 
+  // Koin
+  implementation(libs.bundles.koin)
+
+  // Configurations
+  implementation(libs.hoplite)
+
   // Database
-  implementation(libs.postgres)
+  implementation(libs.mariadb.client)
   implementation(libs.h2)
   implementation(libs.jdbc.driver)
 
@@ -41,6 +47,7 @@ sqldelight {
     create("Database") {
       packageName.set("app.smartalerts")
       dialect("app.cash.sqldelight:mysql-dialect:${libs.versions.sqldelight.get()}")
+      migrationOutputDirectory.set(file("$buildDir/resources/main/migrations"))
       deriveSchemaFromMigrations.set(true)
     }
   }
