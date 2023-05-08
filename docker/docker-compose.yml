@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  smart-alerts:
+    image: smart-alerts-backend:0.0.1
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mariadb
+    environment:
+      - DATABASE_USERNAME=root
+      - DATABASE_PASSWORD=root
+
+  mariadb:
+    image: mariadb:10
+    environment:
+      - MARIADB_ROOT_PASSWORD=root
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data: {}

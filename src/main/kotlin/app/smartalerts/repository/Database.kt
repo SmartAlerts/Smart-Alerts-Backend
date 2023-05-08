@@ -24,8 +24,8 @@ data class DatabaseConfig(val host: String, val port: Int, val username: String,
 
 val DatabaseModule = module {
   single { Database(get<Config>().database) }
-  single { get<SqlDelightDatabase>().userQueries }
-  single { get<SqlDelightDatabase>().contactQueries }
-  single { get<SqlDelightDatabase>().eventQueries }
-  single { get<SqlDelightDatabase>().eventContactQueries }
+  single { get<Database>().userQueries }
+  single { get<Database>().contactQueries }
+  single { get<Database>().eventQueries }
+  single { get<Database>().eventContactQueries }
 }

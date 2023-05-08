@@ -1,3 +1,5 @@
+import io.ktor.plugin.features.JreVersion.JRE_17
+
 plugins {
   alias(libs.plugins.kotlin)
   alias(libs.plugins.ktor)
@@ -38,8 +40,12 @@ dependencies {
   testImplementation(libs.bundles.test.containers)
 }
 
-tasks.withType<Test> {
-  useJUnitPlatform()
+ktor {
+  docker {
+    localImageName.set(project.name)
+    imageTag.set("$version")
+    jreVersion.set(JRE_17)
+  }
 }
 
 sqldelight {
@@ -51,4 +57,8 @@ sqldelight {
       deriveSchemaFromMigrations.set(true)
     }
   }
+}
+
+tasks.withType<Test> {
+  useJUnitPlatform()
 }
