@@ -1,5 +1,6 @@
 package app.smartalerts.repository
 
+import app.smartalerts.ConfigurationModule
 import app.smartalerts.migrations.SmartUser
 import io.kotest.assertions.throwables.shouldNotThrowAny
 import io.kotest.core.extensions.install
@@ -57,7 +58,7 @@ class DatabaseTest : FunSpec({
       )
     ) {
       val target = koinApplication {
-        modules(DatabaseModule)
+        modules(DatabaseModule, ConfigurationModule)
       }.koin.get<Database>()
 
       target.userQueries.insert(SmartUser("123456"))
