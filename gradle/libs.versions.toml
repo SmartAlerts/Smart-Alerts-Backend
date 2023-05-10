@@ -29,8 +29,7 @@ test-containers = { module = "org.testcontainers:testcontainers", version.ref = 
 test-containers-mariadb = { module = "org.testcontainers:mariadb", version.ref = "test-containers" }
 jdbc-driver = { module = "app.cash.sqldelight:jdbc-driver", version.ref = "sqldelight" }
 mariadb-client = { module = "org.mariadb.jdbc:mariadb-java-client", version.ref = "mariadb-client" }
-
-
+kotlinx-serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0"
 
 [bundles]
 ktor = [

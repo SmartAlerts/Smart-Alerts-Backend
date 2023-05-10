@@ -12,6 +12,10 @@ import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
 import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.server.routing.routing
+import kotlinx.serialization.ExperimentalSerializationApi
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonNamingStrategy
+import kotlinx.serialization.json.JsonNamingStrategy.Builtins
 import org.koin.ktor.plugin.Koin
 
 fun main() {
@@ -30,9 +34,13 @@ fun Application.configureKoin() {
   }
 }
 
+@OptIn(ExperimentalSerializationApi::class)
 fun Application.configureSerialization() {
   install(ContentNegotiation) {
-    json()
+    json(Json {
+      // FIXME untested
+      namingStrategy = JsonNamingStrategy.SnakeCase
+    })
   }
 }
 

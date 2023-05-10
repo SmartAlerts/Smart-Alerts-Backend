@@ -19,6 +19,9 @@ dependencies {
   // Ktor
   implementation(libs.bundles.ktor)
 
+  // KotlinX Serialization
+  implementation(libs.kotlinx.serialization)
+
   // Koin
   implementation(libs.bundles.koin)
 

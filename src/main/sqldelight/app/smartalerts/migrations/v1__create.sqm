@@ -14,7 +14,7 @@ CREATE TABLE Contact(
 
 CREATE TABLE SmartEvent(
     smart_user VARCHAR(20) NOT NULL,
-    description VARCHAR(20) NOT NULL,
+    description VARCHAR(255) NOT NULL,
     datetime DATETIME NOT NULL,
     is_cancelled BOOLEAN NOT NULL DEFAULT FALSE,
     id VARCHAR(255) PRIMARY KEY,

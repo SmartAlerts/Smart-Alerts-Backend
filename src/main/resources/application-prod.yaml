@@ -1,5 +1,5 @@
 database:
-  host: mariadb
+  host: localhost
   port: 3306
-  username: ${DATABASE_USERNAME}
-  password: ${DATABASE_PASSWORD}
+  username: ${DATABASE_USERNAME:-root}
+  password: ${DATABASE_PASSWORD:-root}
